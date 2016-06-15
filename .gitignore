@@ -90,3 +90,5 @@ ENV/
 
 #project specific
 venv/
+.travis_deploy.pub
+.travis_deploy.enc
