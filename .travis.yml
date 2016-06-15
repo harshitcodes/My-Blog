@@ -1,0 +1,31 @@
+language: python
+sudo: false
+python:
+- 2.7
+
+branches:
+  only:
+  - source
+
+install:
+- pip install -r requirements.txt
+
+script:
+- make publish
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+
+
+env:
+  global:
+  - OUTPUTDIR: output  
+  - GH_REF: github.com/harshitcodes/my-blog.git
+  - secure: AAAAB3NzaC1yc2EAAAADAQABAAABAQDPqxbt2em01Ouia36xh5isa9HXRVcwzZ5Ip3SuKotbLukf73HRw6mtj9+18e+6qgbokRwuLwIzoeEpAJDJMV1CzrDAG3XrXlAKpfz+oUQg6jo/YnCVHFoe5RZgjzToEo9sy3sJeAxs0tKlUeTvvH5JnWhUB2i5VhUrOhM+D5ggwoojC+hIUlWfNXtnQYcqdb0rwT6Hp0A/ZuDGMC+kgzl7F9h8Jl0K5OsWq+c1aUp9K0rZj0z5drJFzWLpgbQvAvlc6UkuRm3utK+85EfdAbjyLgoKmxm7kKQs1vCHytW2mW9WKYB/GvJDnCbTKhw3QIbY5Ia1DjKA9njU6xVLYaGV
+
+
+after_success:
+- bash travis_deploy.sh
+- linkchecker http://harshit-tyagi.in --check-extern
