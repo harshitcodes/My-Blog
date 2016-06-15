@@ -13,6 +13,8 @@ from pelicanconf import *
 SITEURL = 'http://harshit-tyagi.in/blog'
 RELATIVE_URLS = True
 
+THEME = "output/themes/pelican-semantic-ui"
+
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
 CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
 
